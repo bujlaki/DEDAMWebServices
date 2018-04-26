@@ -1,0 +1,51 @@
+{
+    "deploy.reloaded": {
+        "showPopupWhenFinished": true,
+
+        "packages": [
+            {
+                "name": "IntroduccionEjercicio1",
+                "description": "Package version 1.0.0",
+                "deployOnSave": true,
+                "targets": [ "DEDAMWebServer", "DEDAMWebServer_local" ],
+                "files": [
+                    "**/*.html",
+                    "**/*.js",
+                    "/*.json"
+                ],
+                "exclude": [
+                    "tests/**",
+                    "**/*.log",
+                    "node_modules/**"
+                ],
+
+                "button": {
+                    "text": "Deploy to DEDAMWebServer",
+                    "tooltip": "Deploy to DEDAMWebServer",
+                    "targets": [ "DEDAMWebServer", "DEDAMWebServer_local" ]
+                }
+            }
+        ],
+
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "DEDAMWebServer",
+                "description": "A SFTP folder",
+
+                "host": "18.196.61.140", "port": 22,
+                "user": "ubuntu",
+                "privateKey": "/home/balazs/Documents/DEDAMKeys.ppk",
+
+                "dir": "/var/www/html/nodejs"
+            },
+            {
+                "type": "local",
+                "name": "DEDAMWebServer_local",
+                "description": "Local deployment",
+
+                "dir": "/var/www/html/nodejs"
+            }
+        ]
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "dedamwebserver",
+  "version": "1.0.0",
+  "description": "Practica Web Services",
+  "main": "dedamWebServices.js",
+  "scripts": {
+    "start": "node /var/www/html/nodejs",
+    "debug": "node ."
+  },
+  "author": "Balazs Ujlaki",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  }
+}
