@@ -71,10 +71,30 @@
     </div>
     <div>
         <p>
-            Test case 1:<br/>
+            <b>Test case 1:</b> Crear y eliminar usuario<br/>
             - crear usuario<br/>
             curl -H "Content-type: application/json" -d '{"alias":"alias1", "name":"name1", "surname":"surname1"}' -X POST http://18.196.61.140/nodejs/rest/usuario <br/>
             - nota el ID del usuario en la respuesta<br/>
+            - eliminar usuario<br/>
+            curl -H "Content-type: application/json" -d '' -X DELETE http://18.196.61.140/nodejs/rest/usuario/ID <br/>
+            <br/>
+            <b>Test case 2:</b> Crear usuario, setear 'age', y eliminar usuario<br/>
+            - crear usuario<br/>
+            curl -H "Content-type: application/json" -d '{"alias":"alias1", "name":"name1", "surname":"surname1"}' -X POST http://18.196.61.140/nodejs/rest/usuario <br/>
+            - nota el ID del usuario en la respuesta<br/>
+            - setear age<br/>
+            curl -H "Content-type: application/json" -d '{"value":"39"}' -X PUT http://18.196.61.140/nodejs/rest/usuario/ID/age <br/>
+            - eliminar usuario<br/>
+            curl -H "Content-type: application/json" -d '' -X DELETE http://18.196.61.140/nodejs/rest/usuario/ID <br/>
+            <br/>
+            <b>Test case 3:</b> Crear usuario, crear grupo, setear el grupo por el usuario, y eliminar usuario<br/>
+            - crear usuario<br/>
+            curl -H "Content-type: application/json" -d '{"alias":"alias1", "name":"name1", "surname":"surname1"}' -X POST http://18.196.61.140/nodejs/rest/usuario <br/>
+            - nota el ID del usuario en la respuesta<br/>
+            - crear grupo<br/>
+            curl -H "Content-type: application/json" -d '{"name":"group1"}' -X POST http://18.196.61.140/nodejs/rest/grupo <br/>
+            - setear el grupo por el usuario<br/>
+            curl -H "Content-type: application/json" -d '{"value":"group1"}' -X PUT http://18.196.61.140/nodejs/rest/usuario/ID/group <br/>
             - eliminar usuario<br/>
             curl -H "Content-type: application/json" -d '' -X DELETE http://18.196.61.140/nodejs/rest/usuario/ID <br/>
 
