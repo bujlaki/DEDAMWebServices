@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var db = require('./db.js');
 
+var unittest = require('./unittest.js');
 
 var app = express();
 app.use(bodyParser.json());
@@ -10,6 +11,12 @@ app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));   
+})
+
+app.get('/rest/unittest', function(req, res) {
+    unittest.UnitTest_CreateUser();
+    res.statusCode=200;
+    res.send('ok');
 })
 
 app.get('/rest/usuario', function(req, res) {
